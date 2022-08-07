@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DefaultPositiveButton_Layout">
+        <attr name="buttonStartIcon" format="reference"/>
+        <attr name="buttonEndIcon" format="reference"/>
+        <attr name="buttonText" format="string"/>
+        <attr name="buttonColor" format="reference"/>
+        <attr name="iconColor" format="reference"/>
+    </declare-styleable>
+</resources>
