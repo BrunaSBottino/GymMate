@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         >
 
-        <com.challenge.gymmate.DefaultEditText
+        <com.challenge.gymmate.presentation.customViews.DefaultEditText
             android:id="@+id/editTextUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="20dp" />
 
-        <com.challenge.gymmate.DefaultEditText
+        <com.challenge.gymmate.presentation.customViews.DefaultEditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,20 +34,30 @@
             app:editTextStartIcon="@drawable/ic_baseline_vpn_key_24"
             app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
 
-        <com.challenge.gymmate.DefaultPositiveButton
+        <com.challenge.gymmate.presentation.customViews.DefaultPositiveButton
             android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             app:buttonColor="@color/primaryColorGreen"
-            app:buttonEndIcon="@drawable/ic_baseline_person_24"
-            app:buttonStartIcon="@drawable/ic_baseline_person_24"
             app:buttonText="Login"
+            app:iconColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+        <com.challenge.gymmate.presentation.customViews.DefaultPositiveButton
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:buttonColor="@color/secondaryColor"
+            app:buttonText="Register"
             app:iconColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+            app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

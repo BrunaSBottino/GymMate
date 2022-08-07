@@ -1,4 +1,4 @@
-package com.challenge.gymmate
+package com.challenge.gymmate.presentation.fragments
 
 import android.os.Bundle
 import android.util.Log

@@ -1,7 +1,8 @@
-package com.challenge.gymmate
+package com.challenge.gymmate.presentation.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.challenge.gymmate.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

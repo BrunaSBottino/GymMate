@@ -1,13 +1,12 @@
-package com.challenge.gymmate
+package com.challenge.gymmate.presentation.customViews
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.graphics.drawable.DrawableCompat.setTint
+import com.challenge.gymmate.R
 import com.challenge.gymmate.databinding.CommonsDefaultPositiveButtonBinding
 
 class DefaultPositiveButton(

@@ -9,7 +9,7 @@
         <entry key="app/src/main/res/layout/commons_default_edit_text.xml" value="0.33" />
         <entry key="app/src/main/res/layout/commons_default_positive_button.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.24739583333333334" />
-        <entry key="app/src/main/res/layout/fragment_login_main_card.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_login_main_card.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.2625" />
       </map>
     </option>
