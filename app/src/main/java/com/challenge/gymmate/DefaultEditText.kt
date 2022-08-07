@@ -20,30 +20,24 @@ class DefaultEditText(context: Context, attrs: AttributeSet)
         private val attributes = c.obtainStyledAttributes(attrs, R.styleable.DefaultEditText_Layout)
         init {
             val icon = attributes.getDrawable(R.styleable.DefaultEditText_Layout_editTextStartIcon)
-            setIcon(icon)
+            val color = attributes.getColor(R.styleable.DefaultEditText_Layout_baseColor, 0)
+            setIcon(icon, color)
             val hint = attributes.getString(R.styleable.DefaultEditText_Layout_editTextHint)
             setHint(hint)
-            val color = attributes.getColor(R.styleable.DefaultEditText_Layout_baseColor, 0)
-            setColor(color)
         }
 
-        private fun setColor(color: Int) {
-            ColorStateList.valueOf(color).let {
+        private fun setIcon(icon: Drawable?, color: Int) {
+            icon?.let{
                 binding.textInputLayout.run {
-                    hintTextColor = it
-                    defaultHintTextColor = it
-                    setStartIconTintList(it)
+                    setStartIconTintList(ColorStateList.valueOf(color))
+                    startIconDrawable = it
                 }
             }
         }
 
-        private fun setIcon(icon: Drawable?) {
-            binding.textInputLayout.startIconDrawable = icon
-        }
-
         private fun setHint(hint: String?) {
-            if(hint!=null){
-                binding.textInputLayout.hint = hint
+            hint?.let{
+                binding.editText.hint = hint
             }
         }
     }

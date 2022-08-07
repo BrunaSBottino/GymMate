@@ -20,6 +20,7 @@
         app:boxStrokeColor="#FFF"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
         >
 
         <com.google.android.material.textfield.TextInputEditText
