@@ -16,6 +16,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center_vertical"
+        app:boxBackgroundColor="#FFF"
+        app:boxStrokeColor="#FFF"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -23,10 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            app:boxBackgroundColor="#FFF"
-            app:boxStrokeColor="#FFF"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
             android:paddingVertical="18dp"
             />
 

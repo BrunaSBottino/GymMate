@@ -1,6 +1,7 @@
 package com.challenge.gymmate
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -22,6 +23,18 @@ class DefaultEditText(context: Context, attrs: AttributeSet)
             setIcon(icon)
             val hint = attributes.getString(R.styleable.DefaultEditText_Layout_editTextHint)
             setHint(hint)
+            val color = attributes.getColor(R.styleable.DefaultEditText_Layout_baseColor, 0)
+            setColor(color)
+        }
+
+        private fun setColor(color: Int) {
+            ColorStateList.valueOf(color).let {
+                binding.textInputLayout.run {
+                    hintTextColor = it
+                    defaultHintTextColor = it
+                    setStartIconTintList(it)
+                }
+            }
         }
 
         private fun setIcon(icon: Drawable?) {

@@ -4,6 +4,7 @@
     <declare-styleable name="DefaultEditText_Layout">
         <attr name="editTextHint" format="string"/>
         <attr name="editTextStartIcon" format="reference"/>
+        <attr name="baseColor" format="reference"/>
     </declare-styleable>
 
 </resources>
