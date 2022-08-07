@@ -75,9 +75,9 @@ class DefaultPositiveButton(
         binding.button.run {
             val baseText = text
             val startIcon = compoundDrawables[0]
-            val endIcon = compoundDrawables[3]
+            val endIcon = compoundDrawables[2]
             animate().withStartAction {
-//                setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
+                setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
                 text = ""
             }.scaleX(0.2f).setDuration(200).withEndAction {
                 action()
@@ -85,7 +85,7 @@ class DefaultPositiveButton(
                     text = baseText
                     iconsColor?.let { startIcon?.setTint(it) }
                     iconsColor?.let { endIcon?.setTint(it) }
-                    setCompoundDrawables(startIcon, null, endIcon, null)
+                    setCompoundDrawablesWithIntrinsicBounds(startIcon, null, endIcon, null)
                 }
                 Log.d("Erros", "Porra animou sim mas a animacao ta errada fi")
             }
