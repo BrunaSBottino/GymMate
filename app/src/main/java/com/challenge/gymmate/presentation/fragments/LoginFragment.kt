@@ -6,11 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import com.challenge.gymmate.R
 import com.challenge.gymmate.databinding.FragmentLoginBinding
+import com.challenge.gymmate.presentation.viewModels.LoginViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
+    private val viewModel : LoginViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,11 +24,25 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(layoutInflater)
-        binding.loginContainer.buttonLogin.setOnClickListenerWithAnimation{
-            Log.d("Erros", "Clicou no botao")
-        }
+        val navController = Navigation.findNavController(requireActivity(), R.id.fragment_container)
+        binding.loginContainer.run {
+            buttonLogin.setOnClickListenerWithAnimation {
+                val email = editTextUsername.text
+                val password = editTextPassword.text
+                    viewModel.login(
+                        email = email,
+                        password = password,
+                        onFinish = { isSuccessful ->
+                            if(isSuccessful){
+                                navController.navigate()
+                            } else {
 
-        return binding.root
+                            }
+                        }
+                    )
+            }
+            return binding.root
+        }
     }
 
 }

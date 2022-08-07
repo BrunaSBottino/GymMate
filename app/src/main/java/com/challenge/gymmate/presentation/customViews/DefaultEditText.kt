@@ -15,6 +15,8 @@ class DefaultEditText(context: Context, attrs: AttributeSet)
     private var binding: CommonsDefaultEditTextBinding = CommonsDefaultEditTextBinding
         .inflate(LayoutInflater.from(context), this, true)
     var layoutParams = LayoutParams(context, attrs)
+    val text: String
+        get() = binding.editText.text.toString()
 
     inner class LayoutParams(c: Context, attrs: AttributeSet?)
         : ConstraintLayout.LayoutParams(c, attrs){
