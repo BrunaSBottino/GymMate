@@ -7,7 +7,7 @@ class GymMateApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            modules()
+            modules(viewModelModule, repositoryModule, interactorModule)
         }
     }
 }

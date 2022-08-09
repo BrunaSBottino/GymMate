@@ -1,61 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="24dp"
-    >
+    app:cardCornerRadius="24dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <com.challenge.gymmate.presentation.customViews.DefaultEditText
-            android:id="@+id/editTextUsername"
+            android:id="@+id/editTextRegisterName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            app:editTextHint="Digite seu email"
             app:baseColor="@color/primaryColorGreen"
+            app:editTextHint="Digite seu e-mail de registro"
             app:editTextStartIcon="@drawable/ic_baseline_person_24"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="20dp" />
 
         <com.challenge.gymmate.presentation.customViews.DefaultEditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/editTextPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:inputType="text"
             app:baseColor="@color/primaryColorGreen"
             app:editTextHint="Digite sua senha"
             app:editTextStartIcon="@drawable/ic_baseline_vpn_key_24"
-            app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextRegisterName" />
 
-        <com.challenge.gymmate.presentation.customViews.DefaultPositiveButton
-            android:id="@+id/buttonLogin"
+        <com.challenge.gymmate.presentation.customViews.DefaultEditText
+            android:id="@+id/editTextConfirmPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            app:buttonColor="@color/primaryColorGreen"
-            app:buttonText="Login"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+            android:inputType="text"
+            app:baseColor="@color/primaryColorGreen"
+            app:editTextHint="Confirme sua senha"
+            app:editTextStartIcon="@drawable/ic_baseline_vpn_key_24"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPasswordRegister" />
 
         <com.challenge.gymmate.presentation.customViews.DefaultPositiveButton
             android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            app:buttonColor="@color/secondaryColor"
+            app:buttonColor="@color/primaryColorGreen"
             app:buttonText="Registrar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPasswordRegister"
+            tools:layout_editor_absoluteX="20dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.cardview.widget.CardView>

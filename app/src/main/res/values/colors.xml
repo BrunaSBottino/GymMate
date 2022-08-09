@@ -25,4 +25,8 @@
     <color name="secondaryDarkColorGreen">#102027</color>
     <color name="primaryTextColorGreen">#000000</color>
     <color name="secondaryTextColorGreen">#ffffff</color>
+
+    <color name="primaryColorOrange">#ff6f00</color>
+    <color name="primaryLightColorOrange">#ffa040</color>
+    <color name="primaryDarkColorOrange">#c43e00</color>
 </resources>
