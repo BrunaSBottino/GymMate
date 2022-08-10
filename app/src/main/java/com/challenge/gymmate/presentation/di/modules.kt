@@ -5,12 +5,14 @@ import com.challenge.gymmate.data.firebaseStorage.FirebaseStorageRepository
 import com.challenge.gymmate.data.firestore.FirestoreRepository
 import com.challenge.gymmate.data.interactor.FirebaseStorageInteractor
 import com.challenge.gymmate.data.interactor.FirestoreInteractor
+import com.challenge.gymmate.presentation.fragments.MainViewModel
 import com.challenge.gymmate.presentation.viewModels.LoginViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 var viewModelModule = module {
     viewModel { LoginViewModel(get()) }
+    viewModel { MainViewModel(get(), get()) }
 }
 
 var repositoryModule = module {
