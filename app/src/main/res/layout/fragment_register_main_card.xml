@@ -50,6 +50,7 @@
             android:layout_margin="20dp"
             app:buttonColor="@color/primaryColorGreen"
             app:buttonText="Registrar"
+            app:buttonTextColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPasswordRegister"
             tools:layout_editor_absoluteX="20dp" />

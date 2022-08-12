@@ -21,7 +21,9 @@ class LoginViewModel(
         viewModelScope.launch {
             firebaseAuthRepository.registerUser(email, password).addOnCompleteListener {
                 onFinish(it.isSuccessful)
-                firestoreHelper.saveUserIntoDatabase(User(email))
+                if (it.isSuccessful) {
+                    firestoreHelper.saveUserIntoDatabase(User(email))
+                }
             }
         }
     }

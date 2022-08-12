@@ -47,4 +47,6 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
+
+
 }

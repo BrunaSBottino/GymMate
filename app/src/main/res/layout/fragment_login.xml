@@ -5,18 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.fragments.LoginFragment"
-    android:background="@color/black"
+    android:background="@drawable/back"
     >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:fontFamily="@font/bangers"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="52sp"
+        app:layout_constraintBottom_toTopOf="@+id/animationMan"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationMan"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginVertical="20dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/man_aerobic"
+        app:lottie_speed="1.25" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationWoman"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/animationMan"
+        app:layout_constraintTop_toTopOf="@+id/animationMan"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/woman_aerobic"
+        android:layout_marginStart="-80dp"
+        android:layout_marginVertical="20dp"
+        app:lottie_speed="1.25" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationMan2"
+        android:layout_width="190dp"
+        android:layout_height="180dp"
+        android:layout_marginEnd="-90dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/animationWoman"
+        app:layout_constraintEnd_toEndOf="@+id/animationMan"
+        app:layout_constraintTop_toTopOf="@+id/animationWoman"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/woman_aerobic2"
+        app:lottie_speed="1.25" />
 
     <include
         android:id="@+id/loginContainer"
         layout="@layout/fragment_login_main_card"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

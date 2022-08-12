@@ -55,8 +55,8 @@ class LoginFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if(Firebase.auth.currentUser!=null){
-            navController.navigate(R.id.loginAction)
-        }
+//        if(Firebase.auth.currentUser!=null){
+//            navController.navigate(R.id.loginAction)
+//        }
     }
 }

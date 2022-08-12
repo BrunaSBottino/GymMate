@@ -29,4 +29,5 @@
     <color name="primaryColorOrange">#ff6f00</color>
     <color name="primaryLightColorOrange">#ffa040</color>
     <color name="primaryDarkColorOrange">#c43e00</color>
+    <color name="test">#2e7d32</color>
 </resources>
