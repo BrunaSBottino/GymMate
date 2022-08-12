@@ -23,6 +23,7 @@ class DefaultPositiveButton(
     private var buttonColor: Int? = null
     private var startIcon: Drawable? = null
     private var endIcon: Drawable? = null
+    private var baseTextColor : Int? = null
     var layoutParams = LayoutParams(context, attrs)
 
     inner class LayoutParams(c: Context, attrs: AttributeSet?) :
@@ -33,19 +34,16 @@ class DefaultPositiveButton(
         init {
             buttonColor =
                 attributes.getColor(R.styleable.DefaultPositiveButton_Layout_buttonColor, 0)
-            setColor()
-            iconsColor = attributes.getColor(R.styleable.DefaultPositiveButton_Layout_iconColor, 0)
+            setColor(buttonColor)
+            iconsColor = attributes.getColor(R.styleable.DefaultPositiveButton_Layout_buttonIconColor, 0)
             startIcon =
                 attributes.getDrawable(R.styleable.DefaultPositiveButton_Layout_buttonStartIcon)
             endIcon = attributes.getDrawable(R.styleable.DefaultPositiveButton_Layout_buttonEndIcon)
             setIcons()
             baseText =
                 attributes.getString(R.styleable.DefaultPositiveButton_Layout_buttonText) ?: ""
-            setText()
-        }
-
-        private fun setColor() {
-            buttonColor?.let { binding.button.setBackgroundColor(it) }
+            baseTextColor = attributes.getColor(R.styleable.DefaultPositiveButton_Layout_buttonTextColor, 0)
+            setText(baseText, baseTextColor)
         }
 
         private fun setIcons() {
@@ -57,12 +55,18 @@ class DefaultPositiveButton(
                 setCompoundDrawablesWithIntrinsicBounds(startIcon, null, endIcon, null)
             }
         }
-
-        private fun setText() {
-            binding.button.text = baseText
-        }
     }
 
+    fun setColor(buttonColor : Int?) {
+        buttonColor?.let { binding.button.setBackgroundColor(it) }
+    }
+
+    fun setText(baseText: String, textColor: Int? = baseTextColor) {
+        binding.button.text = baseText
+        if (textColor != null) {
+            binding.button.setTextColor(textColor)
+        }
+    }
 
     fun setOnClickListenerWithAnimation(action: () -> Unit) {
         binding.button.setOnClickListener {

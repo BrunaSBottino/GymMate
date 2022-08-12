@@ -3,11 +3,15 @@ package com.challenge.gymmate.presentation.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.challenge.gymmate.data.firebaseAuth.FirebaseAuthRepository
+import com.challenge.gymmate.data.firestore.FirestoreHelper
+import com.challenge.gymmate.data.model.User
+import com.challenge.gymmate.data.session.GymMateSession
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val firebaseAuthRepository: FirebaseAuthRepository): ViewModel() {
-
-
+class LoginViewModel(
+    private val firebaseAuthRepository: FirebaseAuthRepository,
+    private val firestoreHelper: FirestoreHelper
+    ): ViewModel() {
 
     fun register(
         email:String,
@@ -15,8 +19,10 @@ class LoginViewModel(private val firebaseAuthRepository: FirebaseAuthRepository)
         onFinish : (isSuccessful: Boolean) -> Unit
     ){
         viewModelScope.launch {
-            val isSuccessful = firebaseAuthRepository.registerUser(email, password)
-            onFinish(isSuccessful)
+            firebaseAuthRepository.registerUser(email, password).addOnCompleteListener {
+                onFinish(it.isSuccessful)
+                firestoreHelper.saveUserIntoDatabase(User(email))
+            }
         }
     }
 
@@ -26,10 +32,9 @@ class LoginViewModel(private val firebaseAuthRepository: FirebaseAuthRepository)
         onFinish: (isSuccessful: Boolean) -> Unit
     ){
         viewModelScope.launch {
-            val isSuccessful = firebaseAuthRepository.login(email, password)
-            onFinish(isSuccessful)
+            firebaseAuthRepository.login(email, password).addOnCompleteListener {
+                onFinish(it.isSuccessful)
+            }
         }
     }
-
-
 }

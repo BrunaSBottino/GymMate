@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+     android:layout_width="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".presentation.fragments.NewWorkoutFragment">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+
+            <com.challenge.gymmate.presentation.customViews.DefaultEditText
+                android:id="@+id/editTextWorkoutTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:editTextHint="Digite o nome do treino"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.challenge.gymmate.presentation.customViews.DefaultEditText
+                android:id="@+id/editTextWorkoutDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:editTextHint="Adicione um detalhe do treino"
+                app:layout_constraintEnd_toEndOf="@+id/editTextWorkoutTitle"
+                app:layout_constraintStart_toStartOf="@+id/editTextWorkoutTitle"
+                app:layout_constraintTop_toBottomOf="@+id/editTextWorkoutTitle" />
+
+            <com.challenge.gymmate.presentation.customViews.DefaultPositiveButton
+                android:id="@+id/buttonWorkoutDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:buttonColor="@color/primaryDarkColorGreen"
+                app:buttonText="Qual a hora do treino?"
+                app:buttonTextColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/editTextWorkoutDescription"
+                app:layout_constraintStart_toStartOf="@+id/editTextWorkoutDescription"
+                app:layout_constraintTop_toBottomOf="@+id/editTextWorkoutDescription" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.challenge.gymmate.presentation.customViews.DefaultPositiveButton
+            android:id="@+id/buttonAddDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:buttonColor="@color/primaryLightColorGreen"
+            app:buttonText="Adicionar uma observação"
+            app:buttonTextColor="@color/secondaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <com.challenge.gymmate.presentation.customViews.DefaultPositiveButton
+            android:id="@+id/buttonSaveWorkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:buttonColor="@color/secondaryColor"
+            app:buttonText="Salvar treino"
+            app:buttonTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAddDetail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

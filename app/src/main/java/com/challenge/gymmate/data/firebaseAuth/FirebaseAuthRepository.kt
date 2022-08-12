@@ -1,38 +1,20 @@
 package com.challenge.gymmate.data.firebaseAuth
 
-import android.util.Log
-import com.challenge.gymmate.data.model.BackendException
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class FirebaseAuthRepository {
 
     private val authenticator: FirebaseAuth = FirebaseAuth.getInstance()
 
-    suspend fun registerUser(email:String, password:String): Boolean {
-        return withContext(Dispatchers.IO){
-            try {
-                val task = authenticator.createUserWithEmailAndPassword(email, password)
-                task.isSuccessful
-            } catch (e: BackendException){
-                Log.e("Error: ", e.message)
-                false
-            }
-        }
-    }
+    val currentUser = authenticator.currentUser
 
-    suspend fun login(email:String, password:String):Boolean{
-        return withContext(Dispatchers.IO){
-            try {
-                val task = authenticator.signInWithEmailAndPassword(email, password)
-                task.isSuccessful
-            } catch (e: BackendException){
-                Log.e("Error: ", e.message)
-                false
-            }
-        }
-    }
+    suspend fun registerUser(email:String, password:String): Task<AuthResult> =
+        authenticator.createUserWithEmailAndPassword(email, password)
+
+    suspend fun login(email:String, password:String): Task<AuthResult> =
+        authenticator.signInWithEmailAndPassword(email, password)
 
     suspend fun logout() {
         authenticator.signOut()

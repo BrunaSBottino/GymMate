@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            app:baseColor="@color/primaryColorGreen"
+            app:editTextBaseColor="@color/primaryColorGreen"
             app:editTextHint="Digite seu e-mail de registro"
             app:editTextStartIcon="@drawable/ic_baseline_person_24"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:inputType="text"
-            app:baseColor="@color/primaryColorGreen"
+            app:editTextBaseColor="@color/primaryColorGreen"
             app:editTextHint="Digite sua senha"
             app:editTextStartIcon="@drawable/ic_baseline_vpn_key_24"
             app:layout_constraintTop_toBottomOf="@+id/editTextRegisterName" />
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:inputType="text"
-            app:baseColor="@color/primaryColorGreen"
+            app:editTextBaseColor="@color/primaryColorGreen"
             app:editTextHint="Confirme sua senha"
             app:editTextStartIcon="@drawable/ic_baseline_vpn_key_24"
             app:layout_constraintTop_toBottomOf="@+id/editTextPasswordRegister" />

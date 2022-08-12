@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.challenge.gymmate.R
 import com.challenge.gymmate.databinding.FragmentRegisterBinding
-import com.challenge.gymmate.databinding.FragmentRegisterMainCardBinding
 import com.challenge.gymmate.presentation.viewModels.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import android.text.method.PasswordTransformationMethod as PasswordTransformationMethod1
 
 class RegisterFragment : Fragment() {
 

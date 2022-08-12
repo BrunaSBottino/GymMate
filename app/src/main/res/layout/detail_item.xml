@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal="3dp"
+
     app:cardCornerRadius="24dp"
     >
 
@@ -13,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:background="@color/primaryLightColorGreen"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="3dp"
         >
 
         <TextView

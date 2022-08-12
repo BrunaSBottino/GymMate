@@ -12,9 +12,11 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2625" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.24922118380062305" />
         <entry key="app/src/main/res/layout/fragment_login_main_card.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_new_workout.xml" value="0.2625" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.2625" />
         <entry key="app/src/main/res/layout/fragment_register_main_card.xml" value="0.25" />
         <entry key="app/src/main/res/layout/train_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/workouts_item.xml" value="0.18" />
       </map>
     </option>
   </component>

@@ -9,42 +9,51 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.challenge.gymmate.R
 import com.challenge.gymmate.databinding.CommonsDefaultEditTextBinding
 
-class DefaultEditText(context: Context, attrs: AttributeSet)
+class DefaultEditText(context: Context, attrs: AttributeSet?)
     : ConstraintLayout(context, attrs) {
 
     private var binding: CommonsDefaultEditTextBinding = CommonsDefaultEditTextBinding
         .inflate(LayoutInflater.from(context), this, true)
-    var layoutParams = LayoutParams(context, attrs)
-    val text: String
+    private lateinit var layoutParams : LayoutParams
+    var text: String = ""
         get() = binding.editText.text.toString()
+        set(value) {
+            field = value
+            binding.editText.setText(value)
+        }
+
+    init {
+        if (attrs != null){
+            layoutParams = LayoutParams(context, attrs)
+        }
+    }
 
     inner class LayoutParams(c: Context, attrs: AttributeSet?)
         : ConstraintLayout.LayoutParams(c, attrs){
         private val attributes = c.obtainStyledAttributes(attrs, R.styleable.DefaultEditText_Layout)
         init {
             val icon = attributes.getDrawable(R.styleable.DefaultEditText_Layout_editTextStartIcon)
-            val color = attributes.getColor(R.styleable.DefaultEditText_Layout_baseColor, 0)
+            val color = attributes.getColor(R.styleable.DefaultEditText_Layout_editTextBaseColor, 0)
             setIcon(icon, color)
             val hint = attributes.getString(R.styleable.DefaultEditText_Layout_editTextHint)
             setHint(hint)
         }
+    }
 
-        private fun setIcon(icon: Drawable?, color: Int) {
-            icon?.let{
-                binding.textInputLayout.run {
-                    setStartIconTintList(ColorStateList.valueOf(color))
-                    startIconDrawable = it
-                }
-            }
-        }
-
-        private fun setHint(hint: String?) {
-            hint?.let{
-                binding.editText.hint = hint
+    fun setIcon(icon: Drawable?, color: Int) {
+        icon?.let{
+            binding.textInputLayout.run {
+                setStartIconTintList(ColorStateList.valueOf(color))
+                startIconDrawable = it
             }
         }
     }
 
+    fun setHint(hint: String?) {
+        hint?.let{
+            binding.editText.hint = hint
+        }
+    }
 
 
 }
