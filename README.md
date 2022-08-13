@@ -9,7 +9,7 @@ Nele, o usuário consegue cadastrar uma conta e salvar os treinos com observaç�
 
 - Estou usando **Glide** para fazer o download de imagens;
 
-- **Koin** para injeção e controle de depedências;
+- **Koin** para injeção e controle de dependências;
 
 - **Firebase** para persistência de dados, autenticação e armazenamento;
 
