@@ -6,10 +6,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.challenge.gymmate.data.firebaseAuth.FirebaseAuthRepository
+import com.challenge.gymmate.data.firebaseStorage.FirebaseStorageRepository
+import com.challenge.gymmate.data.firestore.FirestoreHelper
 import com.challenge.gymmate.data.model.Workout
 import com.challenge.gymmate.databinding.WorkoutsItemBinding
+import com.challenge.gymmate.presentation.customViews.WorkoutDialog
+import org.koin.java.KoinJavaComponent.get
 
-class WorkoutsAdapter(private val allWorkouts : List<Workout>)
+class WorkoutsAdapter(private val allWorkouts : List<Workout>, private val updateScreen : () -> Unit)
     : RecyclerView.Adapter<WorkoutsAdapter.WorkoutsViewHolder>() {
 
     class WorkoutsViewHolder(val binding: WorkoutsItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -28,6 +33,10 @@ class WorkoutsAdapter(private val allWorkouts : List<Workout>)
                 Glide.with(imageViewWallpaper).load(currentWorkout.posterURL).into(imageViewWallpaper)
             }.onFailure {
 
+            }
+            // ao clicar em um dos itens, mostra o WorkoutDialog
+            root.setOnClickListener{
+                WorkoutDialog(currentWorkout, root.context, updateScreen).show()
             }
             setupRecyclerView(recyclerViewDetails, currentWorkout)
             setupOtherViews(textViewTitle, textViewTime, currentWorkout)

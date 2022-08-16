@@ -10,14 +10,16 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.challenge.gymmate.R
 import com.challenge.gymmate.data.model.Detail
 import com.challenge.gymmate.data.model.Workout
+import com.challenge.gymmate.domain.session.FirebaseSession
 import com.challenge.gymmate.databinding.FragmentNewWorkoutBinding
 import com.challenge.gymmate.presentation.customViews.DefaultEditText
 import com.challenge.gymmate.presentation.viewModels.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 
@@ -25,6 +27,7 @@ class NewWorkoutFragment : Fragment() {
 
     private lateinit var binding: FragmentNewWorkoutBinding
     private val detailsViews = ArrayList<DefaultEditText>()
+    private lateinit var navController : NavController
     private lateinit var lastViewInConstraint : View
     private val viewModel : MainViewModel by sharedViewModel()
     private var time : String? = null
@@ -35,6 +38,7 @@ class NewWorkoutFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentNewWorkoutBinding.inflate(layoutInflater)
+        navController = Navigation.findNavController(requireActivity(), R.id.fragment_container)
         lastViewInConstraint = binding.buttonWorkoutDate
         binding.run {
             buttonAddDetail.setOnClickListenerWithAnimation {
@@ -57,7 +61,13 @@ class NewWorkoutFragment : Fragment() {
                     time?.let {
                         val workout =
                         Workout(title, description, it, detailsList, getRandomPosterUrl())
-                        viewModel.addNewWorkout(workout)
+                        FirebaseSession.addNewWorkout(workout){ taskSuccessful ->
+                            if (taskSuccessful) {
+                                navController.navigate(R.id.action_return_home)
+                            } else {
+                                // Mostrar que deu erro ao tentar salvar o novo workout no banco de dados
+                            }
+                        }
                     }
                 }
             }

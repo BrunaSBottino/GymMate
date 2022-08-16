@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GymMate"
         tools:targetApi="31"
-        android:name=".presentation.di.GymMateApplication"
+        android:name=".domain.di.GymMateApplication"
         >
         <activity
             android:name=".presentation.activities.MainActivity"

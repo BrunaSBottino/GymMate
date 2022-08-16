@@ -1,4 +1,4 @@
-package com.challenge.gymmate.presentation.di
+package com.challenge.gymmate.domain.di
 
 import com.challenge.gymmate.data.firebaseAuth.FirebaseAuthRepository
 import com.challenge.gymmate.data.firebaseStorage.FirebaseStorageRepository
@@ -9,12 +9,6 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 var viewModelModule = module {
-    viewModel { LoginViewModel(get(), get()) }
-    viewModel { MainViewModel(get(), get(), get()) }
-}
-
-var repositoryModule = module {
-    single { FirestoreHelper() }
-    single { FirebaseStorageRepository() }
-    single { FirebaseAuthRepository() }
+    viewModel { LoginViewModel() }
+    viewModel { MainViewModel() }
 }
