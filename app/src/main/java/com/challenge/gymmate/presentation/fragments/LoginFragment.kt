@@ -55,6 +55,7 @@ class LoginFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        // Checa se o usuário está logado e caso ele esteja, navega com a ação de login
 //        if(Firebase.auth.currentUser!=null){
 //            navController.navigate(R.id.loginAction)
 //        }

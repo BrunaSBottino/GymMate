@@ -14,7 +14,6 @@ import com.challenge.gymmate.databinding.FragmentHomeBinding
 import com.challenge.gymmate.presentation.adapters.WorkoutsAdapter
 import com.challenge.gymmate.presentation.viewModels.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
@@ -43,7 +42,13 @@ class HomeFragment : Fragment() {
 
     private fun setupWorkoutsAdapter(user: User) {
         binding.recyclerViewWorkouts.run {
-            adapter = user.allWorkouts?.let { WorkoutsAdapter(it) }
+            val allWorkouts = user.allWorkouts
+            allWorkouts?.let {
+                adapter = WorkoutsAdapter(
+                    allWorkouts = allWorkouts,
+                    updateScreen = { viewModel.fetchUser() }
+                )
+            }
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }

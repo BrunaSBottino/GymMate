@@ -39,5 +39,9 @@
         android:id="@+id/newWorkoutFragment"
         android:name="com.challenge.gymmate.presentation.fragments.NewWorkoutFragment"
         android:label="fragment_new_workout"
-        tools:layout="@layout/fragment_new_workout" />
+        tools:layout="@layout/fragment_new_workout" >
+        <action
+            android:id="@+id/action_return_home"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

@@ -2,16 +2,12 @@ package com.challenge.gymmate.presentation.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.challenge.gymmate.data.firebaseAuth.FirebaseAuthRepository
-import com.challenge.gymmate.data.firestore.FirestoreHelper
 import com.challenge.gymmate.data.model.User
-import com.challenge.gymmate.data.session.GymMateSession
+import com.challenge.gymmate.domain.session.FirebaseSession.firebaseAuthRepository
+import com.challenge.gymmate.domain.session.FirebaseSession.firestoreHelper
 import kotlinx.coroutines.launch
 
-class LoginViewModel(
-    private val firebaseAuthRepository: FirebaseAuthRepository,
-    private val firestoreHelper: FirestoreHelper
-    ): ViewModel() {
+class LoginViewModel(): ViewModel() {
 
     fun register(
         email:String,

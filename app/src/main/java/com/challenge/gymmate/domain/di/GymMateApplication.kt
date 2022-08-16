@@ -1,4 +1,4 @@
-package com.challenge.gymmate.presentation.di
+package com.challenge.gymmate.domain.di
 
 import android.app.Application
 import com.challenge.gymmate.data.model.User
@@ -8,7 +8,7 @@ class GymMateApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            modules(viewModelModule, repositoryModule)
+            modules(viewModelModule)
         }
     }
 }
