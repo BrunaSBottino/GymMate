@@ -90,9 +90,7 @@ class DefaultPositiveButton(
                     iconsColor?.let { endIcon?.setTint(it) }
                     setCompoundDrawablesWithIntrinsicBounds(startIcon, null, endIcon, null)
                 }
-                Log.d("Erros", "Porra animou sim mas a animacao ta errada fi")
             }
         }
     }
-
 }

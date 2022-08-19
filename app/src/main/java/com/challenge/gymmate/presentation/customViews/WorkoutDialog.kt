@@ -23,6 +23,7 @@ class WorkoutDialog(
         binding.run {
             setContentView(root)
             textViewTitle.text = workout.title
+            textViewTimeWorkout.text = workout.time
             buttonOk.setOnClickListenerWithAnimation {
                 dismiss()
             }

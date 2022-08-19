@@ -10,13 +10,13 @@ class FirebaseAuthRepository {
 
     val currentUser = authenticator.currentUser
 
-    suspend fun registerUser(email:String, password:String): Task<AuthResult> =
+    fun registerUser(email:String, password:String): Task<AuthResult> =
         authenticator.createUserWithEmailAndPassword(email, password)
 
-    suspend fun login(email:String, password:String): Task<AuthResult> =
+    fun login(email:String, password:String): Task<AuthResult> =
         authenticator.signInWithEmailAndPassword(email, password)
 
-    suspend fun logout() {
+    fun logout() {
         authenticator.signOut()
     }
 }
